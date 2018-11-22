@@ -1,16 +1,20 @@
 # Rachel K. Riggs and Carrie Cheung, Nov 2018
-
+#
 # This script reads in the data from flavors_of_cacao.csv
-# This script takes no arguments.
+# This script takes 2 arguments, input and output.
 
-# Usage: Rscript scripts/load_choc_data.R
+# Usage: Rscript Scripts/load_choc_data.R Data/flavors_of_cacao.csv Data/cleaned_choc_data.csv
 
-input <- "Data/flavors_of_cacao.csv"
-output <- "Data/cleaned_choc_data.csv"
+# load libraries
+suppressPackageStartupMessages(library(dplyr))
+
+# Read in input parameters from command line
+args = commandArgs(trailingOnly = TRUE)
+input <- args[1]
+output <- args[2]
 
 # define main function
 main <- function() {
-  
   
   # read in data
   data <- read.csv(input, stringsAsFactors=FALSE)
