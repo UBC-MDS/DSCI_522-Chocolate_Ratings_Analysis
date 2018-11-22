@@ -1,15 +1,20 @@
 # Rachel K. Riggs and Carrie Cheung, Nov 2018
 
-# This script reads in cleaned data from load_choc_data and
-# produces one or more exploratory visualizations.
-# This script takes input and output file paths as parameters.
+# This script reads in cleaned data produced by load_choc_data.R and produces an exploratory visualization.
+# This script takes input and output filepaths as parameters (see usage below).
+# Input filepath specifies location of the cleaned chocolate dataset and input filepath specifies
+# where to save .png file of exploratory visualization.
 
-# Usage: Rscript scripts/viz_choc_data.R
+# Usage: 
+# bash Rscript Scripts/viz_choc_data.R Data/cleaned_choc_data.csv Results/choc_data_viz.png
 
+# Import libraries
 library(tidyverse)
 
-input <- "Data/cleaned_choc_data.csv"
-output <- "Results/choc_data_viz.png"
+# Read in input parameters from command line
+args = commandArgs(trailingOnly=TRUE)
+input <- args[1]
+output <- args[2]
 
 main <- function() {
   
