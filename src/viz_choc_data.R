@@ -6,10 +6,10 @@
 # where to save .png file of exploratory visualization.
 
 # Usage: 
-# bash Rscript Scripts/viz_choc_data.R Data/cleaned_choc_data.csv Results/choc_data_viz.png
+# bash Rscript src/viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
 
 # Import libraries
-library(tidyverse)
+suppressPackageStartupMessages(library(tidyverse))
 
 # Read in input parameters from command line
 args = commandArgs(trailingOnly=TRUE)
