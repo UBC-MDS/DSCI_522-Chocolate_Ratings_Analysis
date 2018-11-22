@@ -30,7 +30,7 @@ _Explain how to run your data analysis (which order scripts are run in, what exp
 2. Run the following commands in the order shown:
 
 ```
-Rscript src/load_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
+Rscript src/load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
 Rscript src/viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
 Rscript src/analyze_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
 ```
