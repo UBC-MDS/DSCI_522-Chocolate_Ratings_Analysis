@@ -48,9 +48,7 @@ main <- function() {
     theme_bw())
   
   # Save plot to file at specified output path
-  png(output)
-  print(mean_rating_plot)
-  dev.off()
+  ggsave(output)
 }
 
 # call main function
