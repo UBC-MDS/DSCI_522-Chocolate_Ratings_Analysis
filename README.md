@@ -1,45 +1,47 @@
-# DSCI_522-rriggs-ccheung
+# Chocolate Bar Rating Analysis
 
-1. For this project, we chose a public dataset of chocolate bar ratings. The data is available from [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings) and a CSV copy has been added to the Data folder in this repository. The code to load this data into R is here:
+## Project Overview
 
-  https://github.com/UBC-MDS/DSCI_522-rriggs-ccheung/blob/master/Scripts/chocolate.R
+Have you ever wondered where the chocolate beans of your favourite chocolate bar came from, and whether that has an effect on how good it tastes?
 
-2. We will be investigating the inferential question: is the average rating for chocolate bars made from beans grown in Venezuela different from the average rating for chocolate bars made from beans grown in other parts of the world?
+To investigate this further, we needed some very delicious chocolate data - we used the [chocolate bar ratings dataset from Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings), which contains ratings by chocolate experts on over 1,795 individual chocolate bars. The dataset includes additional information about the chocolate bars, including where the chocolate beans were grown, cocoa percentage, and bean variety.
 
-3. We will analyze the data by conducting a hypothesis test for the difference between two means. The means are average ratings for chocolate bars for the two groups (grown in Venezuela vs not). As part of this analysis, we will compute the point estimates, sample test statistic, confidence intervals, and the p-value. We will use a simulation approach to generate data under the null hypothesis model.
+Here is a snapshot of first few rows in the dataset:
 
-4. To visualize the results of the analysis, we will show a jitter plot overlaid with error bars for each group. We could alternatively visualize the null hypothesis distribution overlaid with the calculated p-value and confidence intervals. We can summarize the results by showing a table that outlines the confidence intervals and the means for each group.
+![](imgs/choc_data_head.png)
 
-## Chocolate Bar Rating Analysis
+(A CSV copy of the data from Kaggle can be found in the data folder of this repository.)
 
-#### Project Overview
-This project uses the [chocolate bar rating dataset from Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings) to investigate the question: Do chocolate bars made from beans grown in Venezuela have a different average rating score than beans grown elsewhere?
+Since [Venezuela is one of the largest producers of the Criollo bean, which is considered a delicacy](https://en.wikipedia.org/wiki/Cocoa_bean), we set out to answer the following question using the chococlate bar ratings dataset:
 
-This question is motivated by ...
+>**Do chocolate bars made from beans grown in Venezuela have a different average rating score compared to beans grown elsewhere?**
 
-#### Data
- _more about data here_
+## Usage
 
-A CSV copy of the data from Kaggle can be found in the Data folder of this repository.
-
-#### Usage
-_Explain how to run your data analysis (which order scripts are run in, what expected inputs are)_
+You can reproduce our analysis with the following steps:
 
 1. Clone this repo, and using the command line, navigate to the root of this project.
 
-2. Run the following commands in the order shown:
+2. Run the below commands in the order listed:
 
 ```
 Rscript src/load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
 Rscript src/viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
 Rscript src/analyze_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
+Rscript src/analyze_result_choc_data.R data/cleaned_choc_data.csv results/choc_ratings_analysis_viz.png
+Rscript -e "rmarkdown::render('doc/Report.Rmd')"
 ```
 
-#### Dependency Diagram
-_Include a flow chart/dependecy diagram_
+### Usage Flow Chart
 
-#### Dependencies
+The below flowchart visualizes the order the scripts are run as listed in Usage, along with the input file(s) needed and output file(s) produced at each step.
+
+![](imgs/flowchart.png)
+
+## Dependencies
 - R & R libraries:
     - `tidyverse`
     - `rmarkdown`
     - `knitr`
+    - `here`
+    - `infer`
