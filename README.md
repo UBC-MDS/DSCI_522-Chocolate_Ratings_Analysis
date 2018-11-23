@@ -22,7 +22,7 @@ You can reproduce our analysis with the following steps:
 
 1. Clone this repo, and using the command line, navigate to the root of this project.
 
-2. Run the below commands in the order listed:
+2. Run the below commands in bash in the order listed:
 
 ```
 Rscript src/load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
