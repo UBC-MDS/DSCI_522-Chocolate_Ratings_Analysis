@@ -1,6 +1,7 @@
 ---
-title: "Chocolate Bar Rating Analysis"
-authors: "Rachel K. Riggs and Carrie Cheung"
+title: "Chocolate Bar Rating Analysis Report"
+date: "<br>`r format(Sys.time(), '%d %B, %Y')`"
+author: "Rachel K. Riggs and Carrie Cheung"
 output: github_document
 ---
 
@@ -9,9 +10,11 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = here::here())
 ```
 
-## The data
+## Data
 
-For this project, we chose a public dataset of chocolate bar ratings. The data is available from [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings) and a `.csv` copy has been added to the `data` folder in this repository. We are specifically focusing on 2 columns: Ratings (which are specific ratings for bars of chocolate that range from 1 to 5, with 1 being 'Unpleasant' and 5 being 'Elite'), and Specific Bean Origin (which is the specific geo-region of origin for the bar). 'The database is narrowly focused on plain dark chocolate with an aim of appreciating the flavors of the cacao when made into chocolate.'<sup>1</sup> 71 rows of data were removed that were missing a location for the bean origin, with 1721 rows remaining.
+For this project, we chose a public data set of chocolate bar ratings. The data is available from [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings) and a .csv copy has also been added to the `data` folder of this repository. 
+
+The data set contains ratings by chocolate experts on over 1,795 individual chocolate bars. According to Kaggle's description, "[t]he database is narrowly focused on plain dark chocolate with an aim of appreciating the flavors of the cacao when made into chocolate."<sup>1</sup> Each row presents information about a single chocolate bar. The first few rows of the original data set are shown here:
 
 ```{r load libraries and data, include = FALSE}
 suppressPackageStartupMessages(library(tidyverse))
@@ -21,82 +24,60 @@ input <- "data/cleaned_choc_data.csv"
 data <- read.csv(input)
 ```
 
+```{r Show Data}
+head(data, 3)
+```
 
-## The question
+Although the data includes additional information about the chocolate bars, including where the chocolate beans were grown, cocoa percentage, and bean variety, we are specifically focusing on 2 columns for this analysis: 
 
-Is the average rating for chocolate bars made from beans grown in Venezuela different from the average rating for chocolate bars made from beans grown in other parts of the world?
+* "Ratings" (which are specific ratings for bars of chocolate that range from 1 to 5, with 1 being 'Unpleasant' and 5 being 'Elite'), and:
 
-## The statistical summary
+* "Broad Bean Origin" (which is the broad geo-region of origin for the bean, typically a country). 
 
-In order to answer this question, we conducted a hypothesis test for the difference between two means. The means are average ratings for chocolate bars for the two groups (beans grown in Venezuela vs not).
+71 rows were removed that were missing a location for the bean origin, with 1721 rows remaining. 
 
-We computed the sample test statistic (`delta_star`), a 95% confidence interval, and the p-value:
+## Question
+
+Since Venezuela is one of the largest producers of the Criollo cocoa bean, which is considered a fine delicacy<sup>2</sup>, we put this to the test by setting out to answer the following question using this dataset:
+
+**Is the average rating for chocolate bars made with beans grown in Venezuela different from the average rating for chocolate bars made from beans grown in other parts of the world?**
+
+## Statistical Analysis Summary
+
+To answer this question, we re-formulated our question into the following hypotheses:
+
+>H<sub>0</sub>: There is no difference in the average rating of chocolate bars made with beans grown in Venezuela and chocolate bars made with beans grown in other parts of the world.
+>
+>H<sub>A</sub>: There is a difference in the average rating of chocolate bars made with beans grown in Venezuela and chocolate bars made with beans grown in other parts of the world.
+
+A two-sample hypothesis test was conducted where the test statistic is the difference between two means. The means in this case are the average rating for chocolate bars made with beans grown in Venezuela and the average rating for chocolate bars made with beans grown elsewhere. We used simulation to generate a sampling distribution of the test statistic under the null hypothesis model.
+
+We also computed the sample test statistic (`delta_star`), a 95% confidence interval, and the p-value:
 
 ```{r analysis, echo = FALSE}
-# group Venezuela and Other countries
-data <- data %>%
-  mutate(origin = ifelse(Broad.Bean.Origin == "Venezuela", "Venezuela", "Other"))
 
-# compute mean Ratings of Venezuela and Other  
-data_summarized <- data %>% 
-  group_by(origin) %>% 
-  summarize(mean_rating = mean(Rating))
-
-# define test statistic - calculate delta* from sample
-delta_star <- diff(data_summarized$mean_rating)
-
-# generate simulated data under the model H_0 & calculate test 
-# statistics for each simulated sample
-null_dist_two_means <- data %>%
-  specify(formula = Rating ~ origin) %>% 
-  hypothesize(null = "independence") %>% 
-  generate(reps = 10000) %>% 
-  calculate(stat = "diff in means", order = c("Venezuela", "Other"))
-
-# calculate p-value
-pval <- null_dist_two_means %>% 
-  get_pvalue(delta_star, direction = "both")
-
-# calculate confidence interval
-ci <- null_dist_two_means %>%  
-  get_ci() %>% 
-  rename(lower_ci = `2.5%`, upper_ci = `97.5%`)
-
-# create summary table
-delta_star_tibble <- tibble(delta_star = delta_star)
-(summary_table <- bind_cols(delta_star_tibble, ci, pval))
-
+results = read.csv(here::here("results", "summarized_choc_data.csv"))
+results[2:5]
 ```
 
+The null hypothesis distribution is visualized below as a histogram overlaid with the sample test statistic in red to show where it fell in relation to our confidence interval:
 
-## The plot
+![](../results/choc_ratings_analysis_viz.png)
 
-We then visualized the test statistic and where it fell in relation to our confidence interval:
+## Results
 
-```{r plot, echo = FALSE}
-# create plot
-(null_dist_plot <- null_dist_two_means %>% 
-  visualize() +
-  geom_vline(xintercept = delta_star, colour = "red") +
-  geom_vline(xintercept = c(ci[[1]], ci[[2]]), color = "blue", lty = 2) +
-  xlab("Test Statistic (Difference Between Means)") +
-  ylab("Count") +
-  ggtitle("Null Hypothesis Distribution") +
-  annotate("text", x = .045, y = 2000, label = round(delta_star, 3)) +  
-  theme_bw())
-```
+From the plot, we can see that it is not unlikely to obtain a test statistic as exteme as the one observed in our sample data under the null hypothesis. In addition, based on an alpha threshold set at 0.05 and a calculated p-value of 0.0941, we fail to reject the null hypothesis. 
 
-## The result
-
-Based on a threshold of 0.05, a p-value of 0.09, and visualizing where our test statistic falls, we fail to reject the null hypothesis, and conclude that there is not enough evidence to suggest that there is a difference in the average ratings of chocolate bars with beans grown from Venezuela versus other regions.
+In this analysis, we conclude that there is not enough evidence to suggest that there is a difference in the average ratings of chocolate bars made with beans grown in Venezuela versus other regions.
 
 ## Critique
 
-Some bars of chocolate were made from beans from more than one location. We decided to group only those that listed Venezuela alone to be from Venezuela. However, some bars had a combination of beans from Venezuela and other countries. We chose to group these into the 'Other' category.
+Some chocolate bars were made with beans from more than one location (e.g. Venezuela and Java). We grouped only those that listed Venezuela alone as being from Venezuela, and decided to categorize the more ambiguous case of chocolate bars made with a combination of beans grown in both Venezuela and other countries into the 'Other' category
 
-A future direction could be to expand the definition of the Venezuela category to include bars that have beans that are from Venezuela as well as other regions, rather than excluding them from this group. Alternatively, we could create a third group which is beans grown from a combination of locations that do include Venezuela.
-
+A future direction could be to expand the definition of the Venezuela category to include bars made with beans from Venezuela as well as other regions, rather than excluding them from this group. Alternatively, we could create a third group, which would be chocolate bars madewith beans grown from a combination of locations that do include Venezuela.
 
 **Additional References**
 
 1: https://www.kaggle.com/rtatman/chocolate-bar-ratings/home
+
+2: https://en.wikipedia.org/wiki/Cocoa_bean
