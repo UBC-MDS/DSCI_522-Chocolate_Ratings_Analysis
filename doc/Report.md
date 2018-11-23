@@ -56,7 +56,7 @@ A two-sample hypothesis test was conducted where the test statistic is the diffe
 We also computed the sample test statistic (`delta_star`), a 95% confidence interval, and the p-value:
 
     ##   delta_star    lower_ci   upper_ci p_value
-    ## 1 0.05620965 -0.06519498 0.06554847  0.0974
+    ## 1 0.05620965 -0.06652909 0.06688259  0.0982
 
 The null hypothesis distribution is visualized below as a histogram overlaid with the sample test statistic in red to show where it fell in relation to our confidence interval:
 
