@@ -64,7 +64,7 @@ main <- function() {
     theme_bw()
   
   # save plot 
-  ggsave(output)
+  ggsave(output, width = 4, height = 4, units = "in")
 }
 
 # call main function
