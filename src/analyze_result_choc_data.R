@@ -60,11 +60,14 @@ main <- function() {
     xlab("Test Statistic (Difference Between Means)") +
     ylab("Count") +
     ggtitle("Null Hypothesis Distribution") +
-    annotate("text", x = .045, y = 2000, label = round(delta_star, 3)) +  
-    theme_bw()
-  
+    annotate("text", x = .038, y = 1975, label = round(delta_star, 3), size = 3) +  
+    theme_bw() +
+    theme(axis.title = element_text(size=rel(0.7)),
+          axis.text = element_text(size=rel(0.7)),
+          plot.title = element_text(size=rel(1)))
+
   # save plot 
-  ggsave(output)
+  ggsave(output, width = 3.5, height = 3.5, units = "in", dpi = 150)
 }
 
 # call main function
