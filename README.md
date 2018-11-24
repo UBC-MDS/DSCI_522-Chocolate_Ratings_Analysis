@@ -12,15 +12,15 @@ Here is a snapshot of first few rows in the dataset:
 
 (A CSV copy of the data from Kaggle can be found in the data folder of this repository.)
 
-Since [Venezuela is one of the largest producers of the Criollo bean, which is considered a delicacy](https://en.wikipedia.org/wiki/Cocoa_bean), we set out to answer the following question using the chococlate bar ratings dataset:
+Since [Venezuela is one of the largest producers of the Criollo bean, which is considered a delicacy](https://en.wikipedia.org/wiki/Cocoa_bean), we set out to answer the following question using the chocolate bar ratings dataset:
 
->**Do chocolate bars made from beans grown in Venezuela have a different average rating score compared to beans grown elsewhere?**
+>**Do chocolate bars made from beans grown in Venezuela have a different average rating compared to beans grown elsewhere?**
 
 ## Usage
 
 You can reproduce our analysis with the following steps:
 
-1. Clone this repo, and using the command line, navigate to the root of this project.
+1. Clone this repo and, using the command line, navigate to the root of this project.
 
 2. Run the below commands in bash in the order listed:
 
@@ -32,11 +32,15 @@ Rscript src/analyze_result_choc_data.R data/cleaned_choc_data.csv results/choc_r
 Rscript -e "rmarkdown::render('doc/Report.Rmd')"
 ```
 
-### Usage Flow Chart
+## Usage Flow Chart
 
 The below flowchart visualizes the order the scripts are run as listed in Usage, along with the input file(s) needed and output file(s) produced at each step.
 
 ![](imgs/flowchart.png)
+
+## Report
+
+The report for this analysis can be viewed [here](https://github.com/UBC-MDS/DSCI_522-Chocolate_Ratings_Analysis/blob/master/doc/Report.md).
 
 ## Dependencies
 - R & R libraries:
