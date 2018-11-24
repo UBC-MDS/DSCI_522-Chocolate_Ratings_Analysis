@@ -10,7 +10,7 @@ The data is available from
 [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings) and a
 .csv copy has also been added to the `data` folder of this repository.
 
-The data set contains ratings by chocolate experts on over 1,795
+The data set contains ratings by chocolate experts on over 1,792
 individual chocolate bars. According to Kaggle’s description, “\[t\]he
 database is narrowly focused on plain dark chocolate with an aim of
 appreciating the flavors of the cacao when made into

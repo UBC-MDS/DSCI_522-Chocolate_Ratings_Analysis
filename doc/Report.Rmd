@@ -14,7 +14,7 @@ knitr::opts_knit$set(root.dir = here::here())
 
 For this project, we chose a public data set of chocolate bar ratings. The data is available from [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings) and a .csv copy has also been added to the `data` folder of this repository. 
 
-The data set contains ratings by chocolate experts on over 1,795 individual chocolate bars. According to Kaggle's description, "[t]he database is narrowly focused on plain dark chocolate with an aim of appreciating the flavors of the cacao when made into chocolate."<sup>1</sup> Each row presents information about a single chocolate bar. The first few rows of the original data set are shown here:
+The data set contains ratings by chocolate experts on over 1,792 individual chocolate bars. According to Kaggle's description, "[t]he database is narrowly focused on plain dark chocolate with an aim of appreciating the flavors of the cacao when made into chocolate."<sup>1</sup> Each row presents information about a single chocolate bar. The first few rows of the original data set are shown here:
 
 ```{r load libraries and data, include = FALSE}
 suppressPackageStartupMessages(library(tidyverse))

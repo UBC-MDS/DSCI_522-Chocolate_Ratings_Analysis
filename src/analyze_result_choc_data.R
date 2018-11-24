@@ -65,7 +65,7 @@ main <- function() {
     theme(axis.title = element_text(size=rel(0.7)),
           axis.text = element_text(size=rel(0.7)),
           plot.title = element_text(size=rel(1)))
-  
+
   # save plot 
   ggsave(output, width = 3.5, height = 3.5, units = "in", dpi = 150)
 }
