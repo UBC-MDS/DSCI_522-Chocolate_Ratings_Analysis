@@ -38,7 +38,7 @@ main <- function() {
   null_dist_two_means <- data %>%
     specify(formula = Rating ~ origin) %>% 
     hypothesize(null = "independence") %>% 
-    generate(reps = 10000) %>% 
+    generate(reps = 10000, type = "permute") %>% 
     calculate(stat = "diff in means", order = c("Venezuela", "Other"))
   
   # calculate p-value
