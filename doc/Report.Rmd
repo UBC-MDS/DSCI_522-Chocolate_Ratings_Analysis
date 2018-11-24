@@ -26,7 +26,7 @@ data <- read.csv(input)
 
 *Table 1. First three rows of original chocolate bar dataset.*
 
-```{r Show Data, echo = FALSE}
+```{r Show Data, echo=FALSE}
 knitr::kable(head(data, 3))
 ```
 
