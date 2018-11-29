@@ -8,7 +8,7 @@ Data
 
 For this project, we chose a public data set of chocolate bar ratings. The data is available from [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings) and a .csv copy has also been added to the `data` folder of this repository.
 
-The data set contains ratings by chocolate experts on over 1,792 individual chocolate bars. According to Kaggle's description, "\[t\]he database is narrowly focused on plain dark chocolate with an aim of appreciating the flavors of the cacao when made into chocolate."<sup>1</sup> Each row presents information about a single chocolate bar. The first few rows of the original data set are shown here:
+The data set contains ratings by chocolate experts on over 1,792 individual chocolate bars over the period of 2006 to 2017. The ratings were According to Kaggle's description, "\[t\]he database is narrowly focused on plain dark chocolate with an aim of appreciating the flavors of the cacao when made into chocolate."<sup>1</sup> Each row presents information about a single chocolate bar. The first few rows of the original data set are shown here:
 
 *Table 1. First three rows of original chocolate bar dataset.*
 
@@ -38,6 +38,8 @@ To initially get an understanding of how ratings for beans from Venezuela compar
 *Figure 1. Mean ratings of chocolate bars by cocoa bean origin for countries which had more than one rating.*
 
 ![](../results/choc_data_viz.png)
+
+(Note that in the plot, we excluded cocoa bean origin countries which only had a single associated chocolate bar rating. We did this for the purpose of eliminating "one off" chocolate bars which only had a single rating in order to keep the plot above simple and readable. However, those rows were included in our statistical analysis.)
 
 From the plot, we can see that Venezuela is in the upper half of average rating scores; however we cannot tell whether the mean for Venezuela is significantly different from this visualization.
 
@@ -73,8 +75,8 @@ From the plot, we can see that it is not unlikely to obtain a test statistic as 
 
 In this analysis, we conclude that there is not enough evidence to suggest that there is a difference in the average ratings of chocolate bars made with beans grown in Venezuela versus other regions.
 
-Critique
---------
+Limitations
+-----------
 
 Some chocolate bars were made with beans from more than one location (e.g. Venezuela and Java). We grouped only those that listed Venezuela alone as being from Venezuela, and decided to categorize the more ambiguous case of chocolate bars made with a combination of beans grown in both Venezuela and other countries into the 'Other' category
 
