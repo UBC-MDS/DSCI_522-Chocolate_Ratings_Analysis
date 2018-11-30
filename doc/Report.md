@@ -39,7 +39,11 @@ To initially get an understanding of how ratings for beans from Venezuela compar
 
 ![](../results/choc_data_viz.png)
 
-(Note that in the plot, we excluded cocoa bean origin regions which only had a single associated chocolate bar rating. We did this for the purpose of eliminating "one off" chocolate bars which only had a single rating in order to keep the plot above simple and readable. However, those rows were included in our statistical analysis.)
+Note that in the plot, we excluded the following data:
+
+-   Cocoa bean origin regions which only had a single associated chocolate bar rating. This eliminates "one off" chocolate bars which only had a single rating, which keeps the plot above simple and readable. However, those rows were included in our statistical analysis.
+
+-   Large cocoa bean origin regions - for example, beans labelled broadly as grown in "South America". Since we cannot idenfity what specific country or combination of countries these beans are from, we removed the associated chcoolate bars from both the above plot and our analysis.
 
 From the plot, we can see that Venezuela is in the upper half of average rating scores; however we cannot tell whether the mean for Venezuela is significantly different from this visualization.
 
@@ -58,9 +62,9 @@ We also computed the sample test statistic (`delta_star`), a 95% confidence inte
 
 *Table 2. Calculated sample test statistic, lower and upper confidence interval, and p-value.*
 
-|  delta star|   lower CI|   upper CI|  p-value|
-|-----------:|----------:|----------:|--------:|
-|   0.0562097|  -0.065195|  0.0655485|   0.0992|
+|  delta star|    lower CI|   upper CI|  p-value|
+|-----------:|-----------:|----------:|--------:|
+|   0.0572017|  -0.0669535|  0.0665467|   0.0923|
 
 The null hypothesis distribution is visualized below as a histogram overlaid with the sample test statistic in red to show where it fell in relation to our confidence interval:
 
@@ -71,7 +75,7 @@ The null hypothesis distribution is visualized below as a histogram overlaid wit
 Results
 -------
 
-From the plot, we can see that it is not unlikely to obtain a test statistic as extreme as the one observed in our sample data under the null hypothesis. In addition, based on an alpha threshold set at 0.05 and a calculated p-value of 0.095, we fail to reject the null hypothesis.
+From the plot, we can see that it is not unlikely to obtain a test statistic as extreme as the one observed in our sample data under the null hypothesis. In addition, based on an alpha threshold set at 0.05 and a calculated p-value of 0.0923, we fail to reject the null hypothesis.
 
 In this analysis, we conclude that there is not enough evidence to suggest that there is a difference in the average ratings of chocolate bars made with beans grown in Venezuela versus other regions.
 

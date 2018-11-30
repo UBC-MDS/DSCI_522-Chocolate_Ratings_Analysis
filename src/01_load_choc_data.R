@@ -32,12 +32,17 @@ main <- function() {
   data <- data %>%
     filter(nchar(Broad.Bean.Origin) > 2)
   
+  # remove broad bean origins with "America" in the value (contains a combination of beans from different origins)
+  data <- data %>%
+    filter(!grepl("America",Broad.Bean.Origin))
+  
   # rename first columns, replacing '.' with white spaces
   data <- data %>% 
     rename(Company.Maker.if.known = Company...Maker.if.known.)
   
   # write clean data file
   write.csv(data, file = output)
+  
 }
 
 # call main function
