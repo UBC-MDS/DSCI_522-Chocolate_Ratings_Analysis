@@ -1,5 +1,10 @@
 # Chocolate Bar Rating Analysis
 
+### Authors:
+Rachel K. Riggs
+
+Carrie Cheung
+
 ## Project Overview
 
 Have you ever wondered where the chocolate beans of your favourite chocolate bar came from, and whether that has an effect on how good it tastes?
@@ -25,10 +30,10 @@ You can reproduce our analysis with the following steps:
 2. Run the below commands in bash in the order listed:
 
 ```
-Rscript src/load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
-Rscript src/viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
-Rscript src/analyze_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
-Rscript src/analyze_result_choc_data.R data/cleaned_choc_data.csv results/choc_ratings_analysis_viz.png
+Rscript src/01_load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
+Rscript src/02_viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
+Rscript src/03_analyze_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
+Rscript src/04_analyze_result_choc_data.R data/cleaned_choc_data.csv results/choc_ratings_analysis_viz.png
 Rscript -e "rmarkdown::render('doc/Report.Rmd')"
 ```
 
@@ -43,9 +48,10 @@ The below flowchart visualizes the order the scripts are run as listed in Usage,
 The report for this analysis can be viewed [here](https://github.com/UBC-MDS/DSCI_522-Chocolate_Ratings_Analysis/blob/master/doc/Report.md).
 
 ## Dependencies
-- R & R libraries:
-    - `tidyverse`
-    - `rmarkdown`
-    - `knitr`
-    - `here`
-    - `infer`
+- R & R libraries (R version 3.5.1):
+    - `tidyverse_1.2.1`
+    - `knitr_1.20`
+    - `here_0.1`
+    - `infer_0.3.1`
+    - `dplyr_0.7.7`
+    - `ggplot2_3.0.0`

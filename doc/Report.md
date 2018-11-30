@@ -1,7 +1,7 @@
 Chocolate Bar Rating Analysis Report
 ================
 Rachel K. Riggs and Carrie Cheung
-<br>29 November, 2018
+<br>30 November, 2018
 
 Data
 ----
@@ -12,11 +12,11 @@ The data set contains ratings by chocolate experts on over 1,792 individual choc
 
 *Table 1. First three rows of original chocolate bar dataset.*
 
-| Company...Maker.if.known. | Specific.Bean.Origin.or.Bar.Name |   REF|  Review.Date| Cocoa.Percent | Company.Location |  Rating| Bean.Type | Broad.Bean.Origin |
-|:--------------------------|:---------------------------------|-----:|------------:|:--------------|:-----------------|-------:|:----------|:------------------|
-| A. Morin                  | Agua Grande                      |  1876|         2016| 63%           | France           |    3.75|           | Sao Tome          |
-| A. Morin                  | Kpime                            |  1676|         2015| 70%           | France           |    2.75|           | Togo              |
-| A. Morin                  | Atsane                           |  1676|         2015| 70%           | France           |    3.00|           | Togo              |
+| Company Maker if known | Specific Bean Origin or Bar Name |   REF|  Review Date| Cocoa Percent | Company Location |  Rating| Bean Type | Broad Bean Origin |
+|:-----------------------|:---------------------------------|-----:|------------:|:--------------|:-----------------|-------:|:----------|:------------------|
+| A. Morin               | Agua Grande                      |  1876|         2016| 63%           | France           |    3.75|           | Sao Tome          |
+| A. Morin               | Kpime                            |  1676|         2015| 70%           | France           |    2.75|           | Togo              |
+| A. Morin               | Atsane                           |  1676|         2015| 70%           | France           |    3.00|           | Togo              |
 
 Although the data includes additional information about the chocolate bars, including where the chocolate beans were grown, cocoa percentage, and bean variety, we are specifically focusing on 2 columns for this analysis:
 
@@ -35,11 +35,11 @@ Since Venezuela is one of the largest producers of the Criollo cocoa bean, which
 
 To initially get an understanding of how ratings for beans from Venezuela compare to beans from other regions, we plotted the average rating for each bean origin and highlighted Venezuela in red for contrast.
 
-*Figure 1. Mean ratings of chocolate bars by cocoa bean origin for countries which had more than one rating.*
+*Figure 1. Mean ratings of chocolate bars by cocoa bean origin for regions which had more than one rating.*
 
 ![](../results/choc_data_viz.png)
 
-(Note that in the plot, we excluded cocoa bean origin countries which only had a single associated chocolate bar rating. We did this for the purpose of eliminating "one off" chocolate bars which only had a single rating in order to keep the plot above simple and readable. However, those rows were included in our statistical analysis.)
+(Note that in the plot, we excluded cocoa bean origin regions which only had a single associated chocolate bar rating. We did this for the purpose of eliminating "one off" chocolate bars which only had a single rating in order to keep the plot above simple and readable. However, those rows were included in our statistical analysis.)
 
 From the plot, we can see that Venezuela is in the upper half of average rating scores; however we cannot tell whether the mean for Venezuela is significantly different from this visualization.
 
@@ -58,9 +58,9 @@ We also computed the sample test statistic (`delta_star`), a 95% confidence inte
 
 *Table 2. Calculated sample test statistic, lower and upper confidence interval, and p-value.*
 
-|  delta\_star|  lower\_ci|  upper\_ci|  p\_value|
-|------------:|----------:|----------:|---------:|
-|    0.0562097|  -0.065195|  0.0668826|    0.1028|
+|  delta star|   lower CI|   upper CI|  p-value|
+|-----------:|----------:|----------:|--------:|
+|   0.0562097|  -0.065195|  0.0655485|   0.0992|
 
 The null hypothesis distribution is visualized below as a histogram overlaid with the sample test statistic in red to show where it fell in relation to our confidence interval:
 
