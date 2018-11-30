@@ -58,9 +58,9 @@ We also computed the sample test statistic (`delta_star`), a 95% confidence inte
 
 *Table 2. Calculated sample test statistic, lower and upper confidence interval, and p-value.*
 
-|  delta\_star|  lower\_ci|  upper\_ci|  p\_value|
-|------------:|----------:|----------:|---------:|
-|    0.0562097|  -0.065195|  0.0668826|    0.1028|
+|  delta\_star|   lower\_ci|  upper\_ci|  p\_value|
+|------------:|-----------:|----------:|---------:|
+|    0.0562097|  -0.0678632|  0.0668826|    0.1036|
 
 The null hypothesis distribution is visualized below as a histogram overlaid with the sample test statistic in red to show where it fell in relation to our confidence interval:
 

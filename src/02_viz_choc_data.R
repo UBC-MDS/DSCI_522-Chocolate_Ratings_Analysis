@@ -6,7 +6,7 @@
 # where to save .png file of exploratory visualization.
 
 # Usage: 
-# bash Rscript src/viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
+# bash Rscript src/02_viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
 
 # Import libraries
 suppressPackageStartupMessages(library(tidyverse))

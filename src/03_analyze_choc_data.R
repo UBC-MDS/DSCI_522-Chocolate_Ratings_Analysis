@@ -3,7 +3,7 @@
 # This script reads in the data from cleaned_choc_data.csv
 # This script takes 2 arguments, input and output.
 #
-# Usage: Rscript src/analyze_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
+# Usage: Rscript src/03_analyze_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
 
 
 # load libraries

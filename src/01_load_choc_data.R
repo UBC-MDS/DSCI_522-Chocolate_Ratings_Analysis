@@ -3,7 +3,7 @@
 # This script reads in the data from flavors_of_cacao.csv
 # This script takes 2 arguments, input and output.
 
-# Usage: Rscript src/load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
+# Usage: Rscript src/01_load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
 
 # load libraries
 suppressPackageStartupMessages(library(dplyr))
