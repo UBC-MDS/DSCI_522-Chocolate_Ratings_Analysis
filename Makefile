@@ -7,9 +7,9 @@
 
 # example usage:
 # to run:
-# bash make all
+# make all
 # to clean:
-# bash make clean
+# make clean
 
 all : data/cleaned_choc_data.csv results/choc_data_viz.png results/summarized_choc_data.csv results/choc_ratings_analysis_viz.png doc/Report.md
 

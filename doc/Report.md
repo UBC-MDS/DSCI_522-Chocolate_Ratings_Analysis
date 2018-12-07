@@ -1,7 +1,7 @@
 Chocolate Bar Rating Analysis Report
 ================
 Rachel K. Riggs and Carrie Cheung
-<br>30 November, 2018
+<br>07 December, 2018
 
 Data
 ----
@@ -64,7 +64,7 @@ We also computed the sample test statistic (`delta_star`), a 95% confidence inte
 
 |  delta star|    lower CI|   upper CI|  p-value|
 |-----------:|-----------:|----------:|--------:|
-|   0.0572017|  -0.0669535|  0.0665467|   0.0923|
+|   0.0572017|  -0.0669535|  0.0678817|   0.0957|
 
 The null hypothesis distribution is visualized below as a histogram overlaid with the sample test statistic in red to show where it fell in relation to our confidence interval:
 
