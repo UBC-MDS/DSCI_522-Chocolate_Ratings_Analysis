@@ -23,9 +23,9 @@ Since [Venezuela is one of the largest producers of the Criollo bean, which is c
 
 ## Usage
 
-You can reproduce our analysis in one of two ways with the following steps:
+You can reproduce our analysis in one of three ways with the following steps:
 
-### With Docker
+### Option #1: With Docker
 
 1. Clone/download this repository and, using the command line, navigate to the root of this project.
 
@@ -41,8 +41,8 @@ docker run --rm -v PATH_ON_YOUR_COMPUTER:/home/choc_analysis rachelkriggs/dsci_5
 docker run --rm -v PATH_ON_YOUR_COMPUTER:/home/choc_analysis rachelkriggs/dsci_522-chocolate_ratings_analysis make -C '/home/choc_analysis' clean
 ```
 
-### Without Docker
-
+### Option #2: Without Docker Using Make
+_Note that using Make to run our analysis is more straight-forward and therefore recommended compared to option #3 below, which requires running multiple scripts._
 1. Clone/download this repository and, using the command line, navigate to the root of this project.
 
 2. Run the below command in bash:
@@ -55,6 +55,20 @@ make all
 
 ```
 make clean
+```
+
+### Option #3: Without Docker Without Make
+
+1. Clone/download this repository and, using the command line, navigate to the root of this project.
+
+2. Run the below command in bash in the order listed:
+
+```
+Rscript src/01_load_choc_data.R data/flavors_of_cacao.csv data/cleaned_choc_data.csv
+Rscript src/02_viz_choc_data.R data/cleaned_choc_data.csv results/choc_data_viz.png
+Rscript src/03_analyze_choc_data.R data/cleaned_choc_data.csv results/summarized_choc_data.csv
+Rscript src/04_analyze_result_choc_data.R data/cleaned_choc_data.csv results/choc_ratings_analysis_viz.png
+Rscript -e "rmarkdown::render('doc/Report.Rmd')"
 ```
 
 ## Usage Flow Chart

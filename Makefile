@@ -11,7 +11,7 @@
 # to clean:
 # make clean
 
-all : data/cleaned_choc_data.csv results/choc_data_viz.png results/summarized_choc_data.csv results/choc_ratings_analysis_viz.png doc/Report.md
+all : doc/Report.md
 
 # load in data, clean it, and output clean data
 data/cleaned_choc_data.csv : src/01_load_choc_data.R data/flavors_of_cacao.csv
